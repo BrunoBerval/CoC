@@ -3,8 +3,8 @@ import dotenv from "dotenv";
 import router from "./routes";
 import { errorHandler } from "./middlewares/errorHandler";
 import cors from "cors";
-//import { corsOptions } from "./configs/corsConfig";
-import { corsOptions } from "./configs/corsConfig2";
+import { corsOptions } from "./configs/corsConfig";
+//import { corsOptions } from "./configs/corsConfig2";
 
 // Carrega as variáveis de ambiente definidas no arquivo .env
 dotenv.config();
