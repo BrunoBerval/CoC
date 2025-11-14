@@ -1,0 +1,72 @@
+.navContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; /* O container externo ocupa 100% */
+  z-index: 100;
+  display: flex;
+  justify-content: center; /* Centraliza o .navWrapper */
+  padding: 1rem 0; /* Espaçamento vertical */
+}
+
+/* Este wrapper alinha os botões com o layout da SimaPage,
+  respeitando o max-width e os paddings laterais.
+*/
+.navWrapper {
+  width: 100%;
+  max-width: 1200px; /* Mesma largura máxima do SimaPage */
+  display: flex;
+  gap: 1rem;
+  
+  /* Padding inicial para desktop (igual ao SimaPage @media (min-width: 768px)) */
+  padding: 0 4rem;
+}
+
+.navButton {
+  background-color: #003366; /* Azul SIMA */
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.9rem;
+  transition:
+    background-color 0.2s,
+    transform 0.2s;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navButton:hover {
+  background-color: #004a8c;
+  transform: translateY(-2px);
+}
+
+/* --- Media Queries para Responsividade --- */
+
+/* Telas de tablet */
+@media (max-width: 768px) {
+  .navContainer {
+    padding: 0.5rem 0;
+    background-color: #f8f8f8;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+
+  .navWrapper {
+    padding: 0 4rem; /* SimaPage usa 4rem em 768px */
+    gap: 0.5rem;
+  }
+
+  .navButton {
+    flex-grow: 1; 
+    text-align: center;
+    padding: 0.75rem 0.5rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* Telas de celular */
+@media (max-width: 480px) {
+  .navWrapper {
+    padding: 0 1rem; /* SimaPage usa 1rem em 480px */
+  }
+}

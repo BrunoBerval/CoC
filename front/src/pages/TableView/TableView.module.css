@@ -1,0 +1,76 @@
+.content {
+  display: flex;
+  flex-direction: row;
+  grid-template-columns: 260px 1fr;
+  gap: 5px;
+  align-items: start;
+}
+
+.filterMenu {
+  background: #071D41; /* Azul escuro */
+  color: #fff;
+  width: 304px;
+  height: 860px;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+.tableSection {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #f8f9fa;
+  width: 80%;
+  height: 100%;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.tableSection table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tableSection th,
+.tableSection td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+.tableSection th {
+  background-color: #e9ecef;
+  font-weight: bold;
+}
+
+.exportButton {
+  background-color: #0bbd0b; /* Verde principal */
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 18px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.exportButton:hover {
+  background-color: #276749; /* Verde mais escuro no hover */
+  transform: translateY(-1px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.exportButton:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.exportButton:disabled {
+  background-color: #cbd5e0; /* Cinza claro */
+  color: #666;
+  cursor: not-allowed;
+  box-shadow: none;
+}
