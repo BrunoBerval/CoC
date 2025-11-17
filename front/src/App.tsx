@@ -14,6 +14,9 @@ import PublicacoesSimaPage from './pages/PublicacoesSimaPage/PublicacoesSimaPage
 import PageBalcarTable from './pages/Tables/PageBalcarTable';
 import FurnasTablePage from './pages/Tables/PageFurnasTable';
 import SimaTablePage from './pages/Tables/PageSimaTable';
+import BalcarMap from './pages/Map/BalcarMap';
+import FurnasMap from './pages/Map/FurnasMap';
+import SimaMap from './pages/Map/SimaMap';
 import "leaflet/dist/leaflet.css";
 import './styles/global.css';
 import './index.css'
@@ -28,6 +31,9 @@ export default function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/mapa" element={<MapPage />} />
+          <Route path="/mapa-balcar" element={<BalcarMap />} />
+          <Route path="/mapa-furnas" element={<FurnasMap />} />
+          <Route path="/mapa-sima" element={<SimaMap />} />
           <Route path="/tabelas" element={<TableView />} />
           <Route path="/sima" element={<SimaPage />} />
           <Route path="/exportar-csv" element={<ExportCSV />} />
