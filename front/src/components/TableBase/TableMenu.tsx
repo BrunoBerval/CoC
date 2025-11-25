@@ -1,4 +1,4 @@
-//src/components/commons/TableMenu
+//src/components/TableBase/TableMenu
 import { useMemo } from "react";
 import { Database, Table2 } from "lucide-react";
 import type { DatabaseName } from "../../types/types"; // Ajuste o caminho se necessário

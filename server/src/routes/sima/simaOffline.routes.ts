@@ -3,6 +3,7 @@ import {getAll, getById, exportData} from '../../controllers/sima/simaOffline.co
 
 const router = Router();
 
+
 router.get("/all", getAll);
 router.get("/:idsimaoffline", getById);
 router.post("/export", exportData);

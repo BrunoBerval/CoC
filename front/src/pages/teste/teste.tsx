@@ -1,8 +1,7 @@
-// src/pages/balcar/PageBalcarTable.tsx
 import { useState, useMemo } from "react";
 import { NavLink } from "react-router-dom";
-// Importamos o ícone X e BarChart3
-import { X, BarChart3 } from "lucide-react"; 
+// Importamos o ícone X para o botão de fechar
+import { X } from "lucide-react"; 
 
 import "../../components/TableBase/styles.css";
 import styles from "../Sima/SimaPage.module.css";
@@ -13,18 +12,11 @@ import { Placeholder } from "../../components/TableBase/TablePlaceholder";
 import { ModalExport } from "../../components/Export/ModalExport";
 import BalcarMap from "../Map/BalcarMap"; 
 
-// Importação do Gráfico (Novo)
-import GraficoBalcar from "../Grafico/GraficoBalcar";
-
 import { useTableData } from "../../hooks/useTableData";
 import type { FilterParams, ColumnInfo, ColumnType } from "../../types/types";
 
-// Importação do Logo
-import logoBalcar from "../../assets/logoBalcar.png";
-
 // --- Tipos de Visualização ---
-// Adicionado 'graph'
-type ViewMode = 'table' | 'map' | 'graph';
+type ViewMode = 'table' | 'map';
 
 const tabelasDisponiveis = [
   { label: "Campanha", value: "campanha" },
@@ -119,15 +111,10 @@ export function PageBalcarTable() {
       setViewMode('map');
   };
 
-  // --- Handler do Gráfico (NOVO) ---
-  const handleOpenGraph = () => {
-    setViewMode('graph');
-  };
-
-  // ✅ Fecha visualizações especiais (mapa/gráfico) e volta para tabela
-  const handleCloseSpecialView = () => {
+  // ✅ NOVA FUNÇÃO: Fecha o mapa e limpa a seleção da tabela
+  const handleCloseMap = () => {
       setViewMode('table');
-      // setTabelaAtiva(null); // Opcional: descomente se quiser limpar a seleção ao fechar
+      setTabelaAtiva(null); // Isso força a volta para o <Placeholder />
   };
 
   const handlePageChange = (newPage: number) => {
@@ -169,17 +156,14 @@ export function PageBalcarTable() {
 
       <div className="page-layout-container" style={{ display: 'flex' }}>
         
-        {/* Sidebar atualizada com Logo e Título */}
         <FilterSidebar
           tabelas={tabelasDisponiveis}
           tabelaAtiva={tabelaAtiva}
           colunasDisponiveis={colunasDisponiveis}
-          logoSrc={logoBalcar}
-          projectTitle="BALCAR"
           onSelectTabela={handleSelectTabela}
           onApplyFilters={handleSidebarFilters}
           onExport={handleOpenExport}
-          onOpenGraph={handleOpenGraph} // Passando a função real
+          onOpenGraph={() => alert("Análise Gráfica em breve!")}
           onOpenMap={handleOpenMap} 
         />
 
@@ -187,31 +171,40 @@ export function PageBalcarTable() {
         <main className="main-content-area" style={{ flex: 1, padding: '20px', overflowX: 'auto', position: 'relative' }}>
           
           {viewMode === 'map' ? (
-             // --- MODO MAPA ---
+             // --- MODO MAPA COM BOTÃO DE FECHAR ---
              <div style={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'column' }}>
-                <div style={toolbarStyle}>
-                    <button onClick={handleCloseSpecialView} style={closeButtonStyle}>
+                
+                {/* Barra de ferramentas do Mapa (Botão Fechar) */}
+                <div style={{ 
+                    display: 'flex', 
+                    justifyContent: 'flex-end', 
+                    marginBottom: '10px',
+                    paddingBottom: '10px',
+                    borderBottom: '1px solid #ddd'
+                }}>
+                    <button 
+                        onClick={handleCloseMap}
+                        style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '8px',
+                            backgroundColor: '#ff4d4d',
+                            color: 'white',
+                            border: 'none',
+                            padding: '8px 16px',
+                            borderRadius: '4px',
+                            cursor: 'pointer',
+                            fontWeight: 'bold',
+                            fontSize: '0.9rem'
+                        }}
+                    >
                         <X size={18} /> Fechar Mapa
                     </button>
                 </div>
+
+                {/* Container do Mapa */}
                 <div style={{ flex: 1, position: 'relative', minHeight: '500px' }}> 
                     <BalcarMap />
-                </div>
-             </div>
-          ) : viewMode === 'graph' ? (
-             // --- MODO GRÁFICO (NOVO) ---
-             <div style={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'column' }}>
-                <div style={toolbarStyle}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#64748b' }}>
-                        <BarChart3 size={20} />
-                        <span style={{ fontWeight: 600 }}>Visualização Gráfica</span>
-                    </div>
-                    <button onClick={handleCloseSpecialView} style={closeButtonStyle}>
-                        <X size={18} /> Fechar Gráfico
-                    </button>
-                </div>
-                <div style={{ flex: 1, position: 'relative', minHeight: '500px', marginTop: '10px' }}> 
-                    <GraficoBalcar />
                 </div>
              </div>
           ) : (
@@ -253,30 +246,5 @@ export function PageBalcarTable() {
     </>
   );
 }
-
-// Estilos inline auxiliares
-const toolbarStyle: React.CSSProperties = {
-    display: 'flex', 
-    justifyContent: 'space-between', 
-    alignItems: 'center',
-    marginBottom: '10px',
-    paddingBottom: '10px',
-    borderBottom: '1px solid #ddd'
-};
-
-const closeButtonStyle: React.CSSProperties = {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '8px',
-    backgroundColor: '#ff4d4d',
-    color: 'white',
-    border: 'none',
-    padding: '8px 16px',
-    borderRadius: '4px',
-    cursor: 'pointer',
-    fontWeight: 'bold',
-    fontSize: '0.9rem',
-    transition: 'background-color 0.2s'
-};
 
 export default PageBalcarTable;

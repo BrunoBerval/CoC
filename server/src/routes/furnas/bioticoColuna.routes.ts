@@ -3,6 +3,7 @@ import { getAll, getById, exportData } from "../../controllers/furnas/bioticoCol
 
 const router = Router();
 
+
 router.get("/all", getAll);
 router.get("/:id", getById);
 router.post("/export", exportData);

@@ -8,7 +8,7 @@ import {
 
 const router = Router();
 
-// Rotas existentes
+
 router.get("/all", getAll);
 router.get("/:idabioticocoluna", getById);
 

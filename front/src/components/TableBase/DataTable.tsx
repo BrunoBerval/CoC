@@ -1,4 +1,4 @@
-// src/components/commons/DataTable.tsx 
+// src/components/TableBase/DataTable.tsx 
 import { Loader2, AlertCircle, Table2 } from 'lucide-react';
 import type { 
   DataType, 

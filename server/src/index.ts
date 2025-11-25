@@ -21,9 +21,6 @@ const PORT = process.env.PORT || 3000;
 // Middleware para permitir o envio de dados em formato JSON no corpo das requisições
 app.use(express.json());
 
-// Middleware para permitir o envio de dados em formato URL-encoded no corpo das requisições
-app.use(express.urlencoded({ extended: true }));
-
 // Rotas principais
 app.use("/api", router);
 

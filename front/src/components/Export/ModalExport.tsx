@@ -1,3 +1,4 @@
+// src/components/Export/ModalExport.tsx
 import { useState } from 'react';
 import { X, Sheet, FileText, ChevronDown, Download, Loader2, AlertCircle } from 'lucide-react';
 import type { DatabaseName, FilterParams } from '../../types/types'; // Ajuste o caminho

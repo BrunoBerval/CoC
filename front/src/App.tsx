@@ -20,6 +20,7 @@ import SimaMap from './pages/Map/SimaMap';
 import "leaflet/dist/leaflet.css";
 import './styles/global.css';
 import './index.css'
+import DashboardPreview from './pages/teste/teste';
 
 
 
@@ -45,6 +46,7 @@ export default function App() {
           <Route path="/furnas-table" element={<FurnasTablePage/>} />
           <Route path="/balcar-table" element={<PageBalcarTable/>} />
           <Route path="/sima-table" element={<SimaTablePage/>} />
+          <Route path="/teste" element={<DashboardPreview/>} />
         </Routes>
       </main>
       <Footer />

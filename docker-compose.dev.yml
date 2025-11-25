@@ -62,7 +62,7 @@ services:
   server-app:
     build:
       context: ./server
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile
     container_name: server-app
     restart: always
     networks:

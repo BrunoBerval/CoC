@@ -99,7 +99,7 @@ body {
 }
 
 .table-header {
-  background-color: #0e7490; /* bg-cyan-700 */
+  background-color: #071D41; /* bg-cyan-700 */
 }
 
 .table-header-cell {
@@ -108,7 +108,7 @@ body {
   font-size: 0.75rem; /* 12px */
   line-height: 1rem;
   font-weight: 600;
-  color: white;
+  color: #FF9D00;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
